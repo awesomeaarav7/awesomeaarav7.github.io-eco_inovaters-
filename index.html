@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco Innovators - Turning Waste into Wonder</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        header p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+        }
+
+        nav {
+            background: #27ae60;
+            padding: 1rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1.5rem;
+            margin: 0 0.5rem;
+            border-radius: 25px;
+            transition: background 0.3s;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #27ae60;
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: #2ecc71;
+            border-radius: 2px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .team-member {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .member-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        .member-name {
+            font-size: 1.4rem;
+            color: #27ae60;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .member-role {
+            color: #7f8c8d;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .member-bio {
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        #product {
+            background: linear-gradient(135deg, #f0f9f4 0%, #e8f5e9 100%);
+            padding: 4rem 2rem;
+        }
+
+        .product-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .product-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .product-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            flex-shrink: 0;
+        }
+
+        .product-title {
+            font-size: 2rem;
+            color: #27ae60;
+        }
+
+        .product-description {
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: #555;
+        }
+
+        .feature-list li::before {
+            content: '♻️';
+            position: absolute;
+            left: 0;
+        }
+
+        .impact-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stat-box {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.95;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav a {
+                display: block;
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>♻️ Eco Innovators</h1>
+        <p>Turning Waste into Wonder</p>
+    </header>
+
+    <nav>
+        <a href="#team">Our Team</a>
+        <a href="#product" onclick="document.getElementById('product').scrollIntoView({behavior: 'smooth'}); return false;">Our Product</a>
+    </nav>
+
+    <div class="container" id="team">
+        <h2 class="section-title">Meet Our Team</h2>
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="member-icon">👨‍💼</div>
+                <h3 class="member-name">Team Member 1</h3>
+                <p class="member-role">Team Leader</p>
+                <p class="member-bio">Passionate about sustainability and leading our team towards innovative eco-solutions.</p>
+            </div>
+
+            <div class="team-member">
+                <div class="member-icon">👩‍🔬</div>
+                <h3 class="member-name">Team Member 2</h3>
+                <p class="member-role">Research Specialist</p>
+                <p class="member-bio">Expert in waste management and finding creative ways to repurpose materials.</p>
+            </div>
+
+            <div class="team-member">
+                <div class="member-icon">👨‍🎨</div>
+                <h3 class="member-name">Team Member 3</h3>
+                <p class="member-role">Design Lead</p>
+                <p class="member-bio">Transforms waste materials into beautiful and functional products.</p>
+            </div>
+
+            <div class="team-member">
+                <div class="member-icon">👩‍💻</div>
+                <h3 class="member-name">Team Member 4</h3>
+                <p class="member-role">Technology Officer</p>
+                <p class="member-bio">Develops innovative processes and digital solutions for our projects.</p>
+            </div>
+
+            <div class="team-member">
+                <div class="member-icon">👨‍🏫</div>
+                <h3 class="member-name">Team Member 5</h3>
+                <p class="member-role">Outreach Coordinator</p>
+                <p class="member-bio">Connects with the community to spread awareness about waste reduction.</p>
+            </div>
+
+            <div class="team-member">
+                <div class="member-icon">👩‍🔧</div>
+                <h3 class="member-name">Team Member 6</h3>
+                <p class="member-role">Production Manager</p>
+                <p class="member-bio">Ensures quality and efficiency in our product manufacturing process.</p>
+            </div>
+        </div>
+    </div>
+
+    <section id="product">
+        <div class="product-content">
+            <h2 class="section-title">Our Product</h2>
+            
+            <div class="product-card">
+                <div class="product-header">
+                    <div class="product-icon">🌱</div>
+                    <h3 class="product-title">Innovation from Waste</h3>
+                </div>
+                
+                <p class="product-description">
+                    We believe that waste is not the end, but a new beginning. Our team has developed an innovative product that transforms discarded materials into something valuable and useful. By reimagining what others throw away, we're creating sustainable solutions that benefit both people and the planet.
+                </p>
+
+                <h4 style="color: #27ae60; margin-bottom: 1rem; font-size: 1.3rem;">Key Features:</h4>
+                <ul class="feature-list">
+                    <li>Made entirely from recycled and repurposed waste materials</li>
+                    <li>Environmentally friendly production process</li>
+                    <li>Durable and long-lasting design</li>
+                    <li>Reduces landfill waste significantly</li>
+                    <li>Affordable and accessible to everyone</li>
+                    <li>Promotes circular economy principles</li>
+                </ul>
+
+                <div class="impact-stats">
+                    <div class="stat-box">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Recycled Materials</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">Zero</div>
+                        <div class="stat-label">Waste Production</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">∞</div>
+                        <div class="stat-label">Positive Impact</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <h4 style="color: #27ae60; margin-bottom: 1rem; font-size: 1.3rem;">Our Mission</h4>
+                <p class="product-description">
+                    Every day, tons of waste end up in landfills when they could be transformed into something useful. Our product proves that with creativity and innovation, we can close the loop and create a more sustainable future. Join us in our mission to reduce, reuse, and reimagine waste!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Eco Innovators | Making the World Greener, One Innovation at a Time 🌍</p>
+    </footer>
